@@ -20,25 +20,25 @@ K의 잔고가 80만원이 남아있고, H의 잔고가 250만원 남아있어�
 
 ### CASE1 (정상)
 
-![alt text](img/4/image.png)
+![alt text](img/4/image000.png)
 
 ### CASE2 (정상)
 
-![alt text](img/4/image2.png)
+![alt text](img/4/image0000.png)
 
 ### CASE3 (정상)
 
-![alt text](image.png)
+![alt text](img/4/image.png)
 
 ### CASE4 (비정상:LOST UPDATE)
 
-![alt text](image-1.png)
+![alt text](img/4/image-1.png)
 
 ## 실행순서 간략화 (Schedule)
 
 위의 각 CASE는 아래와 같이 간략화해서 표현이 가능하다.
 
-![alt text](image-3.png)
+![alt text](img/4/image-3.png)
 
 ### 용어 정리
 
@@ -94,13 +94,13 @@ K의 잔고가 80만원이 남아있고, H의 잔고가 250만원 남아있어�
 
 (여기서 2,3의 경우 꼭 DB에 국한되지 않고 일어날 수 있는 동시성 문제 상황의 조건이다.)
 
-![alt text](image-4.png)
+![alt text](img/4/image-4.png)
 
 위의 경우에는 3가지 conflict가 존재한다.
 
 **중요한 것은 conflict operation의 순서가 바뀌면 결과가 바뀌게된다는 점이다.**
 
-![alt text](image-5.png)
+![alt text](img/4/image-5.png)
 
 위의 예제에서 녹색 트랜잭션이 read해온 값이 각각 다르다
 
@@ -119,7 +119,7 @@ K의 잔고가 80만원이 남아있고, H의 잔고가 250만원 남아있어�
 2. 어떤 conflict operations의 순서도 양쪽이 동일하다.
 
 
-![alt text](image-7.png)
+![alt text](img/4/image-7.png)
 
 CASE2와 CASE3의 경우를 보자.
 
@@ -162,7 +162,7 @@ sched3은 정상적인 결과가 나오게된다.
 # 2. Recoverability
 
 ## 상황
-![alt text](image-8.png)
+![alt text](img/4/image-8.png)
 
 - tx1이 commit되었고, tx2가 문제가 있어서 rollback 되었음.
 
@@ -224,11 +224,11 @@ cascadless schedule(avoid cascade rollback) 라고 한다.
 
 위에서 살펴본 cascadless schedule(avoid cascade rollback)도 문제가 발생할 수 있다.
 
-![alt text](image-9.png)
+![alt text](img/4/image-9.png)
 
 cascadless schedule을 적용한다면 위와같은 예제를 대처할 수 없다.
 
-tx1이 문제가 시켜서 tx1이전으로 롤백을 하게 되면 tx2결과가 지워지게 된다.
+tx1이 문제가 생겨서 tx1이전으로 롤백을 하게 되면 tx2결과가 지워지게 된다.
 
 이러한 문제가 발생하는 이유는 cascadless schedule이 read에 있어서만 제약을 걸기 때문이다.
 
@@ -240,6 +240,8 @@ schedule 내에서 어떤 tx도 **commit되지 않은 tx들이 write한 데이�
 
 그리고 이와 같은 schedule을 Strict Schedule 이라고 한다.
 
+![alt text](img/4/image-11.png)
+
 ## Diagram
 
-![alt text](image-10.png)
+![alt text](img/4/image-10.png)
