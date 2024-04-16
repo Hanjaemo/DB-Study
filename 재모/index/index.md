@@ -23,21 +23,25 @@ Index는 '색인'이라는 사전적 의미를 가지고 있는데, 색인이란
 ### 인덱스 사용법
 - #### 이미 테이블이 생성되고 데이터가 저장되어 있는 경우 index 생성   
   <img width="500" src="img/how_to_use_index_1.png">   
+  
   같은 팀에서 등 번호는 중복되지 않는다. 따라서 team_id와 backnumber를 AND 조건으로 조회하면 선수 정보를 unique하게 조회할 수 있다.   
   이러한 조회의 경우 index를 걸어줄 때 UNIQUE라는 키워드를 추가한다. 
 
 - #### 테이블을 처음 생성하는 경우 index 생성 
   <img width="500" src="img/how_to_use_index_2.png">   
+  
   - PK에는 index가 자동으로 생성된다. 
     - 보통 기본키를 사용한 검색이 자주 발생하기 때문에, 이에 대한 index 생성은 검색 속도를 크게 개선할 수 있다.
   - CREATE문 안에서는 index 이름을 생략할 수 있다.
 
 - #### index 목록 조회
   <img width="500" src="img/how_to_show_index_list.png">   
+  
   - 왼쪽부터 테이블 이름, unique 여부, index 이름, 해당 index 내에서 컬럼의 순서, index가 걸린 컬럼명, null 허용 여부를 의미한다.
 
 - #### 특정 쿼리가 사용하는 index 조회
   <img width="500" src="img/index5.png">
+  
   - `possible_keys`: 해당 쿼리에 사용할 수 있는 index
   - `key`: 실제 사용한 index
 
@@ -50,10 +54,12 @@ index에는 오름차순 정렬된 a의 값들과 실제 members 테이블의 �
 이 상태에서 `a=9` 조건으로 데이터를 조회한다면, 다음과 같이 binary search를 통해 탐색한다.   
 
 1. 찾으려는 값 9는 5보다 크기 때문에 5보다 작은 데이터는 무시한다.   
-  <img width="400" src="img/index2.png">
+    <img width="400" src="img/index2.png">
+
 2. 9를 찾을 때까지 1번과 똑같은 과정을 반복한다.
+
 3. 9를 찾았다면, 해당 포인터가 가리키는 튜플을 찾는다.    
-  <img width="400" src="img/index3.png">
+    <img width="400" src="img/index3.png">
 
 > #### 2개 이상의 컬럼에 대해 index를 생성할 수 있다.
 > a에 대한 index만 존재할 때 a와 b에 대한 조건을 만족하는 값을 찾으려면, 결국 동일한 값들에 대해 각각 b 조건을 만족하는 값을 찾기 위해 full scan 방식으로 검색해야 한다. 이 경우 데이터가 많아질수록 성능 상의 문제가 커질 것이다.   
