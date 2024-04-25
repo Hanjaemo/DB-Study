@@ -80,7 +80,7 @@
 
 ### 중복 허용
 
-![alt text](image-7.png)
+![alt text](img/8/image-7.png)
 
 - 중복을 허용함으로써 join을 회피함.
 

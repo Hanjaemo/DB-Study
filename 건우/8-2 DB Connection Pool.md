@@ -9,7 +9,7 @@
 - 이 비용을 없애기 위해 DB Connection Pool을 사용한다.
 
 
-![alt text](image-5.png)
+![alt text](img/8/image-5.png)
 
 다음과 같이 동작한다.
 
@@ -84,7 +84,7 @@
 
 - request per seconds와 avg response time 확인
 
-  ![alt text](image-6.png)
+  ![alt text](img/8/image-6.png)
 
 - request per seconds와 avg response time 그래프에서 트래픽 처리가 버거워지는 지점을 확인한다.
 
