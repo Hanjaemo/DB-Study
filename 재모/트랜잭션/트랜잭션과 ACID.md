@@ -114,7 +114,7 @@ UPDATE account SET balance = balance + 800000 WHERE name = '맹구';
 예를 들어, 120만원을 가지고 있던 철수가 맹구에게 100만원을 이체하는 동시에 넷플릭스 구독료 50만원이 빠져나간다고 가정해보자.   
 그러면 트랜잭션은 다음과 같이 수행된다.   
 ```mysql
-read(balance) >= 100만원 # Transaction A
+read(balance) = 100만원 # Transaction A
 update(balance = balance - 50만원) # Transaction B 
 update(balance = balance - 100만원) # Transaction A
 ```
