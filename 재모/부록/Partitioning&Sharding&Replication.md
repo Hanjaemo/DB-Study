@@ -16,7 +16,7 @@ SELECT id, title, ..., likes_cnt FROM posts;
 
 <img width="500" src="img/okky_posts.png">
 
-사실 위와 같이 쿼리를 작성해도 DB가 위치한 secondary storage에서는 데이터는 tuple 전체를 가져오고, 그 데이터들 중 쿼리에 따라 특정 데이터만 따로 가져오게 된다.   
+사실 위와 같이 쿼리를 작성해도 DB가 위치한 secondary storage에서는 tuple 전체를 가져오고, 그 데이터들 중 쿼리에 따라 특정 데이터만 따로 가져오게 된다.   
 이렇듯 모든 컬럼 값을 가져오므로 특정 컬럼 값의 크기가 크다면 결국 성능에 안 좋은 영향을 준다.
 
 이런 성능 문제를 개선하고자 다음과 같이 크기가 큰 데이터는 다른 테이블에 저장하고, 필요할 때만 JOIN해서 조회하는 방식이 바로 vertical partitioning이다.
