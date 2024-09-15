@@ -32,12 +32,12 @@ Secondary storage는 데이터를 영구적으로 저장 가능하며, 저장 �
 > #### 왜 HDD가 SSD보다 느릴까?
 > HDD 안에는 물리적 저장 장치가 존재한다. 데이터를 읽어올 때마다 물리적 장치가 계속 움직이면서 동작하는데, 이 물리적인 시간 때문에 HDD가 SSD보다 상대적으로 더 느린 것이다.
 
-그리고 second storage는 다음과 같이 block 단위로 데이터를 읽고 쓰는데, 연관된 데이터를 모아서 저장하는 것이 더 효율적이기 때문이다.   
+그리고 secondary storage는 다음과 같이 block 단위로 데이터를 읽고 쓰는데, 연관된 데이터를 모아서 저장하는 것이 더 효율적이기 때문이다.   
 물을 구매하려고 할 때, 물을 다 마실 때마다 1개씩 사는 것보다 6개가 묶여 있는 것을 사는게 더 효율적이듯이 데이터를 읽고 쓸 때도 마찬가지다.
 
 <img width="300" src="img/second_storage_block.png">
 
-secondart storage에 있는 특정 데이터를 읽어오고 싶을 때, 해당 데이터를 포함하고 있는 block 전체(여기서는 빨간색 공간을 의미함)를 main memory에 읽어온다.
+secondary storage에 있는 특정 데이터를 읽어오고 싶을 때, 해당 데이터를 포함하고 있는 block 전체(여기서는 빨간색 공간을 의미함)를 main memory에 읽어온다.
 
 > 여기서 말하는 **block**이란 file system이 데이터를 읽고 쓰는 논리적인 단위를 의미한다.   
 > block의 크기는 2의 승수로 표현되며, 대표적인 block size는 4KB, 8KB, 16KB 등이 있다.
